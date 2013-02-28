@@ -34,8 +34,28 @@
 	//Router::connect('/logout', array('controller' => 'auth', 'action' => 'logout'));
     //Router::connect('/register', array('controller' => 'auth', 'action' => 'register'));
 
-    Router::connect('/:controller/:id', array('action' => 'view'), array('id' => '[0-9]+'));
+//    Router::connect('/:controller/:id', array('action' => 'view'), array('id' => '[0-9]+'));
+//    Router::connect('/users/:user_id/meetings', array('controller' => 'meetings'), array('user_id' => '[0-9]+'));
+
+    Router::connect('/users', array('controller' => 'users', 'action' => 'index'));
+    Router::connect(
+        '/users/:user_id',
+        array('controller' => 'users', 'action' => 'view'),
+        array('pass' => array('user_id')),
+        array("user_id" => "[0-9]+")
+    );
+    Router::connect(
+        '/users/:user_id/meetings',
+        array('controller' => 'meetings', 'action' => 'index')
+    );
+    Router::connect(
+        '/users/:user_id/meetings/:id',
+        array('controller' => 'meetings', 'action' => 'view'),
+        array('pass' => array('id')),
+        array('user_id' => "[0-9]+", "id" => "[0-9]+")
+    );
     Router::mapResources('users');
+    Router::mapResources('meetings');
     Router::parseExtensions();
 
 /**

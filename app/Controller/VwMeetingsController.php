@@ -7,9 +7,7 @@ class VwMeetingsController extends AppController {
     public $responseJSON = array('status' => true, 'message' => '', 'data' => null);
 
     public function index() {
-        $this->responseJSON['data'] = $this->VwMeeting->find('all', array(
-            'fields' => array('id', 'name')
-        ));
+        $this->responseJSON['data'] = $this->VwMeeting->find('all');
 
         $this->set(array(
             'responseJSON' => $this->responseJSON,
@@ -18,7 +16,7 @@ class VwMeetingsController extends AppController {
     }
 
     public function view($id) {
-        $this->responseJSON['data'] = $this->VwMeeting->findById($id);
+        $this->responseJSON['data'] = $this->VwMeeting->find('all', array('conditions' => array('id' => $id)));
         $this->set(array(
             'responseJSON' => $this->responseJSON,
             '_serialize' => array('responseJSON')

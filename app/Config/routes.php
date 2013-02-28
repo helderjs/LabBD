@@ -56,6 +56,12 @@
     );
     Router::mapResources('users');
     Router::mapResources('meetings');
+    Router::mapResources('vw_matches');
+    Router::mapResources('vw_meetings');
+    Router::mapResources('vw_other_user');
+    Router::mapResources('vw_self_user');
+    Router::mapResources('vw_user_interests');
+    Router::mapResources('vw_user_score');
     Router::parseExtensions();
 
 /**

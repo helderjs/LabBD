@@ -7,15 +7,16 @@ class UsersController extends AppController {
     public $responseJSON = array('status' => true, 'message' => '', 'data' => null);
 
     public function index() {
-        /*$this->responseJSON['data'] = $this->User->find('all', array(
+        $this->responseJSON['data'] = $this->User->find('all', array(
             'fields' => array('id', 'name')
         ));
 
         $this->set(array(
             'responseJSON' => $this->responseJSON,
             '_serialize' => array('responseJSON')
-        ));*/
+        ));
 
+        /*
         $us = array();
 
         for ($i = 0; $i < 10000; $i++) {
@@ -50,7 +51,7 @@ class UsersController extends AppController {
         } catch (Exception $e) {
             $ds->rollback();
             echo $e->getMessage();
-        }
+        }*/
     }
 
     public function view($id) {

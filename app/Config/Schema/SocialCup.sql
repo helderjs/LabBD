@@ -194,6 +194,21 @@ SHOW WARNINGS;
 -- SHOW WARNINGS;
 
 -- -----------------------------------------------------
+-- View `vw_user_interests`
+-- -----------------------------------------------------
+DROP VIEW IF EXISTS `vw_user_interests` ;
+SHOW WARNINGS;
+DROP TABLE IF EXISTS `vw_user_interests`;
+SHOW WARNINGS;
+USE `SocialCup`;
+CREATE  OR REPLACE VIEW `vw_user_interests` AS
+SELECT us.id, us.username, us.genre, us.birthday, it.id AS interest_id, it.name AS interest_name
+	FROM user AS us
+	LEFT JOIN user_has_interest AS ui ON (ui.user_id = us.id)
+	LEFT JOIN interest AS it ON (ui.interest_id = it.id)
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
 -- View `vw_self_user`
 -- -----------------------------------------------------
 DROP VIEW IF EXISTS `vw_self_user` ;

@@ -31,7 +31,7 @@ CREATE  TABLE IF NOT EXISTS `city` (
   `id` VARCHAR(36) NOT NULL ,
   `name` VARCHAR(100) NOT NULL ,
   `country_id` VARCHAR(36) NOT NULL ,
-  PRIMARY KEY (`id`, `country_id`) )
+  PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
 SHOW WARNINGS;
